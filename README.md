@@ -28,16 +28,27 @@ different failure modes requiring different solutions.
 
 ## Results Summary
 
-| Rarity Tier | N | Top-1 Accuracy | Top-5 Accuracy | Gap (pp) |
-|---|---|---|---|---|
-| Zero-shot (novel) | 28 | 10.7% | 14.3% | 3.6 |
-| Ultra-rare (1) | 44 | 11.4% | 11.4% | 0.0 |
-| Very rare (2-5) | 56 | 37.5% | 42.9% | 5.4 |
-| Rare (6-20) | 56 | 33.9% | 50.0% | 16.1 |
-| Moderate (21-100) | 56 | 21.4% | 25.0% | 3.6 |
-| Common (100+) | 56 | 28.6% | 33.9% | 5.4 |
+rare-disease-llm-benchmark/
+│
+├── data/
+│   ├── cases/                 # Kaggle clinical cases (cleaned)
+│   └── rarity_mapping.json    # Mapping of diseases → rarity tier
+│
+├── notebooks/
+│   └── benchmark.ipynb        # Main evaluation notebook
+│
+├── results/
+│   ├── predictions.json       # Raw model outputs
+│   └── results_summary_table.csv
+│
+├── src/
+│   ├── evaluator.py           # Accuracy + tier evaluation logic
+│   ├── prompts.py             # Prompt templates for LLM queries
+│   └── utils.py               # Helpers (loading, formatting, scoring)
+│
+├── README.md                  # Project documentation
+└── requirements.txt           # Dependencies
 
-Chi-square p=0.011 | Fisher exact p=0.005 (Ultra-rare vs Very rare)
 
 ---
 
